@@ -1,0 +1,31 @@
+{
+  "name": "homepage",
+  "version": "0.2.0",
+  "author": "Aleksi Lassila",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aleksilassila/aleksilassila.github.io.git"
+  },
+  "scripts": {
+    "dev": "next ./src",
+    "build": "next build ./src",
+    "start": "next start ./src",
+    "export": "next build ./src && next export ./src"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "axios-hooks": "^1.10.0",
+    "isomorphic-unfetch": "^3.0.0",
+    "next": "^8.1.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.13.0"
+  }
+}

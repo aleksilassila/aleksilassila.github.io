@@ -1,0 +1,42 @@
+# OSX
+.DS_Store
+
+# Node
+node_modules
+npm-debug.log
+yarn-error.log
+
+yarn.lock # let's prefer npm's package-lock.json
+
+# Logs
+*.log
+
+# Editors
+.vscode/
+
+# Ansible
+playbook.retry
+
+# Environment
+.env
+
+# Keys
+keys
+*.pem
+
+# Test results
+results
+robot/log.html
+robot/output.xml
+robot/report.html
+robot/selenium-*.png
+
+# Build artifacts
+dist
+
+# Python
+*.pyc
+
+.next/
+
+.idea/
