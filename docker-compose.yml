@@ -30,6 +30,8 @@ services:
     build: frontend
     volumes:
       - ./frontend:/usr/src/app
+    environment:
+      ENDPOINT: ${ENDPOINT}
     ports:
       - 3000:3000
 
