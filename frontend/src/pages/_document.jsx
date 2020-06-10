@@ -1,5 +1,5 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document';
-import theme from '../theme';
+import Document, { Html, Head, Main, NextScript } from "next/document";
+import theme from "../theme";
 
 class MyDocument extends Document {
     static async getInitialProps(ctx) {
@@ -11,7 +11,10 @@ class MyDocument extends Document {
         return (
             <Html>
                 <Head>
-                    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:500,300|Raleway:300&amp;display=swap" rel="stylesheet" />
+                    <link
+                        href="https://fonts.googleapis.com/css?family=Roboto+Mono:500,300|Raleway:300&amp;display=swap"
+                        rel="stylesheet"
+                    />
                     <style>{`
                         body {
                             margin: 0;
@@ -37,6 +40,19 @@ class MyDocument extends Document {
                             }
                         }
                     `}</style>
+                    <script
+                        async
+                        src="https://www.googletagmanager.com/gtag/js?id=UA-137706612-2"
+                    ></script>
+                    <script
+                        dangerouslySetInnerHTML={{
+                            __html: `window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-137706612-2');`,
+                        }}
+                    />
                 </Head>
                 <body className="body">
                     <Main />

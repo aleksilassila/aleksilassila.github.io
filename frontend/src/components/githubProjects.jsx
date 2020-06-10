@@ -5,25 +5,22 @@ const GithubProjects = ({ maxRepos }) => {
     const [{ data, loading, error }, refetch] = useAxios({
         url: "https://api.github.com/users/aleksilassila/repos",
     });
+
+    const reposFirst = ["bitfields"];
+
     if (error) {
         return <p>Error while fetching github</p>;
     } else if (loading) {
         return <p>Loading...</p>;
     } else {
         const reposSorted = data.sort((first, second) => {
-            if (
-                first.name === "text-worlds-online" ||
-                first.name === "hsl-timetables-uebersicht"
-            ) {
+            if (reposFirst.includes(first.name)) {
                 return -1;
-            } else if (
-                second.name === "text-worlds-online" ||
-                second.name === "hsl-timetables-uebersicht"
-            ) {
+            } else if (reposFirst.includes(second.name)) {
                 return 1;
-            } else {
-                return second.stargazers_count - first.stargazers_count;
             }
+
+            return second.stargazers_count - first.stargazers_count;
         });
 
         const reposToImages = {
@@ -33,6 +30,8 @@ const GithubProjects = ({ maxRepos }) => {
                 "https://raw.githubusercontent.com/aleksilassila/text-moba/master/screenshots/bigger_maps.png",
             "hsl-timetables-uebersicht":
                 "https://raw.githubusercontent.com/aleksilassila/hsl-timetables-uebersicht/master/timetables.png",
+            bitfields:
+                "https://raw.githubusercontent.com/aleksilassila/bitfields/master/screenshot2.png",
         };
 
         const repoElements = reposSorted.map((repo) => (
