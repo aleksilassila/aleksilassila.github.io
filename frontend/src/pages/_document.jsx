@@ -46,13 +46,14 @@ class MyDocument extends Document {
                     ></script>
                     <script
                         dangerouslySetInnerHTML={{
-                            __html: `window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-137706612-2');`,
+                            __html: `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){window.dataLayer.push(arguments)}
+        gtag("js", new Date());
+        gtag("config", "UA-137706612-2");
+    `,
                         }}
-                    />
+                    ></script>
                 </Head>
                 <body className="body">
                     <Main />
