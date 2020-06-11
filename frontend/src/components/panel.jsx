@@ -1,21 +1,36 @@
-import theme from '../theme';
-import Selected from './selected';
+import theme from "../theme";
+import Selected from "./selected";
 
 const Panel = ({ disableNav }) => (
     <div id="panel">
         <h2>Aleksi Lassila</h2>
         <ul>
-            <li onClick={() => document.getElementById('wip').scrollIntoView({ behavior: 'smooth' })}>
-                <Selected elementId="wip" />WIP
+            <li
+                onClick={() =>
+                    document
+                        .getElementById("whoami")
+                        .scrollIntoView({ behavior: "smooth" })
+                }
+            >
+                <Selected elementId="whoami" />
+                Who am I?
             </li>
-            <li onClick={() => document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })}>
-                <Selected elementId="projects" />Projects
-            </li>
-            <li onClick={() => document.getElementById('whoami').scrollIntoView({ behavior: 'smooth' })}>
-                <Selected elementId="whoami" />Who am I?
+            <li
+                onClick={() =>
+                    document
+                        .getElementById("projects")
+                        .scrollIntoView({ behavior: "smooth" })
+                }
+            >
+                <Selected elementId="projects" />
+                Projects
             </li>
         </ul>
-        <div role="button" onClick={() => window.open('http://github.com/aleksilassila')} id="octocat" />
+        <div
+            role="button"
+            onClick={() => window.open("http://github.com/aleksilassila")}
+            id="octocat"
+        />
         <style jsx>{`
             #panel {
                 width: 25vw;
@@ -39,7 +54,7 @@ const Panel = ({ disableNav }) => (
                 margin-top: 30vh;
                 list-style: none;
                 padding-left: 15%;
-                display: ${disableNav ? 'none' : 'block'};
+                display: ${disableNav ? "none" : "block"};
             }
 
             li {
@@ -50,12 +65,12 @@ const Panel = ({ disableNav }) => (
             }
 
             #octocat {
-                background-image: url('../static/GitHub-Mark-64px.png');
+                background-image: url("../static/GitHub-Mark-64px.png");
                 background-size: cover;
                 background-position: center;
                 width: 2rem;
                 height: 2rem;
-                
+
                 cursor: pointer;
                 border-radius: 1rem;
 
@@ -72,7 +87,7 @@ const Panel = ({ disableNav }) => (
                     border: none;
                     flex-direction: row;
                     align-items: center;
-                    background-color: ${theme.color.white}
+                    background-color: ${theme.color.white};
                 }
 
                 ul {
@@ -84,7 +99,7 @@ const Panel = ({ disableNav }) => (
 
                 li {
                     padding: 0;
-                    margin: 0 1rem;;
+                    margin: 0 1rem;
                 }
 
                 h2 {
@@ -102,7 +117,6 @@ const Panel = ({ disableNav }) => (
                     display: none;
                 }
             }
-
         `}</style>
     </div>
 );

@@ -11,9 +11,10 @@ import GithubProjects from "../components/githubProjects";
 const Home = (props) => (
     <div>
         <Panel />
-        <FullView id="wip">
-            <h2>WIP_</h2>
-            <p>This site is still unfinished and work in progress.</p>
+        <FullView arrow={true} id="whoami">
+            <h2>Whoami_</h2>
+            <p>Hi, I'm a developer from Espoo, Finland.</p>
+            <p>Here you can find my latest projects and work.</p>
             <style jsx>{`
                 h2 {
                     margin: 0;
@@ -33,22 +34,6 @@ const Home = (props) => (
                     }
                 `}</style>
             </View>
-        </FullView>
-        <FullView id="whoami">
-            <h2>whoami_</h2>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-                eget tristique leo. Nulla sapien risus, hendrerit non purus
-                vitae, tristique euismod urna. Nulla non nisi quis dolor egestas
-                consectetur. Vestibulum et libero sit amet lorem bibendum
-                vestibulum. Mauris in ex malesuada leo dapibus consectetur.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </p>
-            <style jsx>{`
-                h2 {
-                    margin: 0;
-                }
-            `}</style>
         </FullView>
         <Footer>
             <p>© 2020 Aleksi Lassila</p>
