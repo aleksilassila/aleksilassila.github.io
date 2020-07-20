@@ -1,0 +1,15 @@
+Package: me.aleksilassila.spotifyplaylistnumberofsongs
+Name: SpotifyPlaylistNumberOfSongs
+Version: 0.0.1
+Architecture: iphoneos-arm
+Description: Show amount of songs in playlist.
+Maintainer: Aleksi Lassila
+Author: Aleksi Lassila
+Section: Tweaks
+Depends: mobilesubstrate (>= 0.9.5000)
+Filename: debs/me.aleksilassila.spotifyplaylistnumberofsongs.deb
+Size: 6386
+MD5sum: 7a20d89190c1fea7fcab001d4869174a
+SHA1: dbee67181336afd3c8c8714383b181cea0ac1613
+SHA256: 8c070605e8d993cae648e1b2bcedc6393e917ef0886c674d5e9d0cc3848bd491
+SHA512: 502349733d98f051d4aa7dc7be9741568b828ce9f949db2a83e4a116dee129cb680fb984c2dc0964bbe97f403b2afb7fc6add7295f6c232d9058f2a521d6f49c

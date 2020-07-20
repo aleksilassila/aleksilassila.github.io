@@ -1,0 +1,8 @@
+Origin: Aleksi's Repo
+Label: Aleksi
+Suite: stable
+Version: 1.0
+Codename: Aleksi
+Architectures: iphoneos-arm
+Components: main
+Description: Suppilolehmät sinkoilee
