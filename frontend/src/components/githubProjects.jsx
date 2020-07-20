@@ -6,7 +6,7 @@ const GithubProjects = ({ maxRepos }) => {
         url: "https://api.github.com/users/aleksilassila/repos",
     });
 
-    const reposFirst = ["bitfields"];
+    const reposFirst = ["SpotifyPlaylistNumberOfSongs", "bitfields"];
 
     if (error) {
         return <p>Error while fetching github</p>;
