@@ -18,6 +18,16 @@ const Panel = ({ disableNav }) => (
             <li
                 onClick={() =>
                     document
+                        .getElementById("repo")
+                        .scrollIntoView({ behavior: "smooth" })
+                }
+            >
+                <Selected elementId="repo" />
+                Tweaks
+            </li>
+            <li
+                onClick={() =>
+                    document
                         .getElementById("projects")
                         .scrollIntoView({ behavior: "smooth" })
                 }

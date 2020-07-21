@@ -34,6 +34,10 @@ class MyDocument extends Document {
                             font-weight: 500;
                         }
 
+                        p {
+                            margin: 0.5em 0 0 0;
+                        }
+
                         @media (max-width: 700px) {
                             body {
                                 font-size: 0.8em;
