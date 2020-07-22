@@ -32,6 +32,8 @@ const GithubProjects = ({ maxRepos }) => {
                 "https://raw.githubusercontent.com/aleksilassila/hsl-timetables-uebersicht/master/timetables.png",
             bitfields:
                 "https://raw.githubusercontent.com/aleksilassila/bitfields/master/screenshot2.png",
+            SpotifyPlaylistNumberOfSongs:
+                "https://raw.githubusercontent.com/aleksilassila/SpotifyPlaylistNumberOfSongs/master/screenshot.jpg",
         };
 
         const repoElements = reposSorted.map((repo) => (
