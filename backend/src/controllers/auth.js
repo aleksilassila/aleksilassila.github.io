@@ -11,7 +11,7 @@ passport.use(
             // options for google strategy
             clientID: config.GOOGLE_CLIENT_ID,
             clientSecret: config.GOOGLE_CLIENT_SECRET,
-            callbackURL: "/api/auth/google/redirect",
+            callbackURL: "aleksilassila.me/api/auth/google/redirect",
         },
         async (accessToken, refreshToken, profile, done) => {
             await database.User.findOrCreate({
