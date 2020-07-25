@@ -12,41 +12,19 @@ import GithubProjects from "../components/githubProjects";
 const Home = (props) => (
     <div>
         <Panel />
-        <div>
-            <FullView arrow={true} id="whoami">
-                <h2>Whoami_</h2>
-                <p>Hi, I'm a developer from Espoo, Finland.</p>
-                <p>Here you can find my latest projects and work.</p>
-            </FullView>
-            <div id="bw" />
+        <FullView id="projects" arrow={true}>
+            <h2>Github projects showcase</h2>
+            <GithubProjects maxRepos={3} />
             <style jsx>{`
-                #bw {
-                    background-image: url("static/bw.JPG");
-                    background-size: contain;
-                    background-repeat: no-repeat;
-                    background-position-x: right;
-                    height: 100vh;
-                    width: 50vw;
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-                    z-index: -1;
-                }
-
-                @media (max-width: 72rem) {
-                    #bw {
-                        margin-top: 2.5rem;
-                    }
-                }
-
-                @media (max-width: 700px) {
-                    #bw {
-                        display: none;
-                    }
+                h2 {
+                    margin: 0;
                 }
             `}</style>
-        </div>
-        <FullView id="repo">
+        </FullView>
+        <FullView>
+            <Posts />
+        </FullView>
+        <FullView id="repo" arrow={true}>
             <View noPadding={true}>
                 <h2>Tweaks</h2>
                 <Tweak
@@ -84,20 +62,36 @@ const Home = (props) => (
                 `}</style>
             </View>
         </FullView>
-        <FullView id="projects">
-            <View noPadding={true}>
-                <Posts />
-            </View>
-            <View noPadding={true}>
-                <h2>Github projects showcase</h2>
-                <GithubProjects maxRepos={3} />
-                <style jsx>{`
-                    h2 {
-                        margin: 0;
+        <div>
+            <div id="bw" />
+            <FullView id="whoami">
+                <h2>Whoami_</h2>
+                <p>Hi, I'm a developer from Espoo, Finland.</p>
+                <p>
+                    I do all sorts of projects, some of which I post here. Have
+                    a look!
+                </p>
+            </FullView>
+            <style jsx>{`
+                #bw {
+                    background-image: url("static/bw.JPG");
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    background-position-x: right;
+                    height: 80vh;
+                    width: 50vw;
+                    position: absolute;
+                    right: 0;
+                    margin-top: 10vh;
+                }
+
+                @media (max-width: 700px) {
+                    #bw {
+                        display: none;
                     }
-                `}</style>
-            </View>
-        </FullView>
+                }
+            `}</style>
+        </div>
         <Footer>
             <p>© 2020 Aleksi Lassila</p>
             <p>

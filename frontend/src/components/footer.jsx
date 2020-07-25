@@ -11,7 +11,7 @@ const Footer = ({ children, ...rest }) => (
             .footer {
                 width: 100%;
                 height: 100%;
-                padding: 1vh 8vw;
+                padding: 2vh 8vw;
 
                 font-size: 0.8em;
                 color: ${theme.color.black}80;

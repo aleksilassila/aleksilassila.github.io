@@ -8,12 +8,12 @@ const Panel = ({ disableNav }) => (
             <li
                 onClick={() =>
                     document
-                        .getElementById("whoami")
+                        .getElementById("projects")
                         .scrollIntoView({ behavior: "smooth" })
                 }
             >
-                <Selected elementId="whoami" />
-                Who am I?
+                <Selected elementId="projects" />
+                Projects
             </li>
             <li
                 onClick={() =>
@@ -28,12 +28,12 @@ const Panel = ({ disableNav }) => (
             <li
                 onClick={() =>
                     document
-                        .getElementById("projects")
+                        .getElementById("whoami")
                         .scrollIntoView({ behavior: "smooth" })
                 }
             >
-                <Selected elementId="projects" />
-                Projects
+                <Selected elementId="whoami" />
+                Who am I?
             </li>
         </ul>
         <div
