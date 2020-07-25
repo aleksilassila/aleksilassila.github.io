@@ -30,7 +30,7 @@ const Posts = () => {
                                             month: "short",
                                             day: "numeric",
                                         })}{" "}
-                                        By {post.creator.firstName}
+                                        by {post.creator.firstName}
                                     </p>
                                 </div>
                                 <p>{post.content}</p>
