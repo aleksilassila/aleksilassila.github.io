@@ -30,13 +30,13 @@ const Home = (props) => (
                 <Tweak
                     name="SpotifyPlaylistNumberOfSongs"
                     description={
-                        <>
+                        <div>
                             <p>
                                 A MobileSubstrate tweak for Spotify to show
                                 amount of songs in
                             </p>
                             <p>a playlist next to playlist duration.</p>
-                        </>
+                        </div>
                     }
                 />
             </View>

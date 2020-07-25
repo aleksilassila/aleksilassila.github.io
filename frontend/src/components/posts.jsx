@@ -8,6 +8,7 @@ const Posts = () => {
         url: config.ENDPOINT + "/posts",
         withCredentials: true,
     });
+
     if (error) {
         return <p>Could not load posts</p>;
     } else if (loading) {
@@ -17,15 +18,25 @@ const Posts = () => {
             <div>
                 <h2 id="posts-heading">Posts</h2>
                 <div id="posts">
-                    {data.map((post) => (
-                        <div className="post" key={post.id}>
-                            <div className="post-title-name">
-                                <h2>{post.title}</h2>
-                                <p>By {post.creator.firstName}</p>
+                    {data.map((post) => {
+                        const date = new Date(post.createdAt);
+                        return (
+                            <div className="post" key={post.id}>
+                                <div className="post-title-name">
+                                    <h2>{post.title}</h2>
+                                    <p className="post-metadata">
+                                        {date.toLocaleDateString(undefined, {
+                                            year: "numeric",
+                                            month: "short",
+                                            day: "numeric",
+                                        })}{" "}
+                                        By {post.creator.firstName}
+                                    </p>
+                                </div>
+                                <p>{post.content}</p>
                             </div>
-                            <p>{post.content}</p>
-                        </div>
-                    ))}
+                        );
+                    })}
                 </div>
                 <style jsx>{`
                     #posts {
@@ -52,12 +63,16 @@ const Posts = () => {
                     .post h2 {
                         font-size: 1em;
                         margin: 0;
-                        margin-bottom: 0.6em;
+                        margin-bottom: 1em;
                     }
 
                     .post p {
                         font-size: 0.9em;
                         margin: 0;
+                    }
+
+                    .post-metadata {
+                        opacity: 0.5;
                     }
                 `}</style>
             </div>

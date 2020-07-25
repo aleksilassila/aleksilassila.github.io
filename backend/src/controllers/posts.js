@@ -3,6 +3,7 @@ const jwt = require("jsonwebtoken");
 const config = require("../config");
 const database = require("../database");
 
+// Posts for user who isn't signed in
 exports.getPosts = async (ctx) => {
     const token = ctx.cookies.get("token");
     const user = token
@@ -28,6 +29,7 @@ exports.getPosts = async (ctx) => {
     ctx.body = posts;
 };
 
+// Posts for specific user
 exports.getMyPosts = async (ctx) => {
     const posts = await database.Post.findAll({
         include: [

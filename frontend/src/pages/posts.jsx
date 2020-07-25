@@ -150,8 +150,7 @@ const Posts = (props) => {
                     </label>
                     <label>
                         Content:
-                        <input
-                            type="text"
+                        <textarea
                             value={content}
                             onChange={(e) => setContent(e.target.value)}
                         />
@@ -165,10 +164,22 @@ const Posts = (props) => {
 
                     form {
                         padding: 1em 0;
+                        display: flex;
+                        flex-direction: column;
                     }
 
-                    input {
-                        margin-right: 1em;
+                    input[type="text"],
+                    textarea {
+                        float: right;
+                        width: 60vw;
+                    }
+
+                    input[type="submit"] {
+                        width: 100px;
+                    }
+
+                    label {
+                        margin-bottom: 1em;
                     }
 
                     h3 {
