@@ -17,7 +17,7 @@ class MyDocument extends Document {
                     />
                     <style>{`
                         html {
-                            background-color: rgba(100,100,255,1);
+                            {/*background-color: rgba(100,100,255,1);*/}
                         }
                         
                         body {
@@ -28,14 +28,14 @@ class MyDocument extends Document {
                             height: 100vh;
                             overscroll-behavior: none;
                             background-repeat: no-repeat;
-                            background: linear-gradient(25deg, rgba(100,100,255,1) 20%, rgba(255,61,151,1) 100%);
-                            color: #221a42;
+                            {/*background: linear-gradient(25deg, rgba(100,100,255,1) 20%, rgba(255,61,151,1) 100%);*/}
+                            {/*color: #221a42;*/}
                         }
 
                         #clip {
                             height: 100vh;
                             position: fixed;
-                            overflow: scroll;
+                            overflow-y: scroll;
                         }
 
                         * {
