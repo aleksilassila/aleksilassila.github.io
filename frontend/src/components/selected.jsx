@@ -1,5 +1,5 @@
-import React from 'react';
-import theme from '../theme';
+import React from "react";
+import theme from "../theme";
 
 class Selected extends React.Component {
     constructor(props) {
@@ -11,9 +11,14 @@ class Selected extends React.Component {
 
     componentDidMount() {
         const checkIfVisible = () => {
-            const elBoundingClientRect = document.getElementById(this.props.elementId).getBoundingClientRect()
-            
-            if (elBoundingClientRect.top < window.innerHeight / 2 && elBoundingClientRect.bottom > window.innerHeight / 2) {
+            const elBoundingClientRect = document
+                .getElementById(this.props.elementId)
+                .getBoundingClientRect();
+
+            if (
+                elBoundingClientRect.top < window.innerHeight / 2 &&
+                elBoundingClientRect.bottom > window.innerHeight / 2
+            ) {
                 this.setState({ visible: true });
             } else {
                 this.setState({ visible: false });
@@ -22,7 +27,7 @@ class Selected extends React.Component {
 
         checkIfVisible();
         // Improve performance -> right now too many scroll listeners
-        window.addEventListener('scroll', () => { 
+        document.getElementById("clip").addEventListener("scroll", () => {
             checkIfVisible();
         });
     }
@@ -39,12 +44,11 @@ class Selected extends React.Component {
                         background-color: ${theme.color.black};
                         margin-right: 0.5rem;
                         transition: height 0.3s;
-                        height: ${visible ? '1rem' : '0'};
+                        height: ${visible ? "1rem" : "0"};
                     }
                     .selected {
                         height: 1rem;
                     }
-
                 `}</style>
             </div>
         );

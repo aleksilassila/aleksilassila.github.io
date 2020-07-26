@@ -22,7 +22,7 @@ const Home = (props) => (
                     }
                 `}</style>
             </FullView>
-            <FullView>
+            <FullView arrow={true}>
                 <Posts />
             </FullView>
             <FullView id="repo" arrow={true}>
