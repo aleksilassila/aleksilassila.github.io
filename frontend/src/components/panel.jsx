@@ -97,7 +97,6 @@ const Panel = ({ disableNav }) => (
                     border: none;
                     flex-direction: row;
                     align-items: center;
-                    background-color: ${theme.color.white};
                 }
 
                 ul {
