@@ -17,18 +17,19 @@ class MyDocument extends Document {
                     />
                     <style>{`
                         html {
-                            background-repeat: no-repeat;
-                            background-color: ${theme.color.white};
-                            color: ${theme.color.black};
-                            /*background: linear-gradient(45deg, rgba(181,0,255,1) 29%, rgba(255,0,0,1) 100%);
-                            color: #2b282d;*/
+                            background-color: rgba(100,100,255,1);
                         }
+                        
                         body {
                             margin: 0;
                             padding: 0;
                             font-family: Roboto Mono, monospace;
                             font-weight: 300;
                             height: 100vh;
+                            overscroll-behavior: none;
+                            background-repeat: no-repeat;
+                            background: linear-gradient(25deg, rgba(100,100,255,1) 20%, rgba(255,61,151,1) 100%);
+                            color: #221a42;
                         }
 
                         #clip {
@@ -53,6 +54,7 @@ class MyDocument extends Document {
                         @media (max-width: 72rem) {
                             #clip {
                                 margin-top: 48px;
+                                height: calc(100% - 48px);
                             }
                         }
 
