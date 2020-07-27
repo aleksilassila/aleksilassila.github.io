@@ -14,3 +14,19 @@ Description: Show amount of songs in a playlist.
 Author: Aleksi Lassila
 Name: SpotifyPlaylistNumberOfSongs
 
+Package: me.aleksilassila.wsjnopaywall
+Version: 0.0.1
+Architecture: iphoneos-arm
+Maintainer: Aleksi Lassila
+Installed-Size: 136
+Depends: mobilesubstrate (>= 0.9.5000)
+Filename: debs/me.aleksilassila.wsjnopaywall_0.0.1.deb
+Size: 4500
+MD5sum: b5703229b71538d01826dae10a405f26
+SHA1: ad187f116c20e6a24164001852f1852aab21d86a
+SHA256: 9a158e2b83d543f41f481003feb1b91c60683ebf849d920d22a236b46d86d8ac
+Section: Tweaks
+Description: Bypass WSJ paywall.
+Author: Aleksi Lassila
+Name: WSJNoPaywall
+
