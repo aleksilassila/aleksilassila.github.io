@@ -27,7 +27,7 @@ class Selected extends React.Component {
 
         checkIfVisible();
         // Improve performance -> right now too many scroll listeners
-        document.getElementById("clip").addEventListener("scroll", () => {
+        document.getElementById("page").addEventListener("scroll", () => {
             checkIfVisible();
         });
     }

@@ -32,13 +32,13 @@ class MyDocument extends Document {
                             color: ${theme.text};
                         }
 
-                        #clip {
+                        #page {
                             height: 100vh;
                             position: fixed;
                             overflow-y: scroll;
 
                         }
-                        #clip::-webkit-scrollbar {
+                        #page::-webkit-scrollbar {
                             display: none;
                         }
 
@@ -64,7 +64,7 @@ class MyDocument extends Document {
                         }
 
                         @media (max-width: 72rem) {
-                            #clip {
+                            #page {
                                 margin-top: 48px;
                                 height: calc(100% - 48px);
                             }

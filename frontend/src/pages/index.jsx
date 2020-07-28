@@ -9,101 +9,108 @@ import Posts from "../components/posts";
 import Tweak from "../components/tweak";
 import GithubProjects from "../components/githubProjects";
 
-const Home = (props) => (
-    <div>
-        <Panel />
-        <div id="clip">
-            <FullView id="projects" arrow={true}>
-                <h2>Github projects showcase</h2>
-                <GithubProjects maxRepos={3} />
-                <style jsx>{`
-                    h2 {
-                        margin: 0;
-                    }
-                `}</style>
-            </FullView>
-            <FullView arrow={true} id="posts">
-                <Posts />
-            </FullView>
-            <FullView id="repo" arrow={true}>
-                <View noPadding={true}>
-                    <h2>Tweaks</h2>
-                    <Tweak
-                        name="SpotifyPlaylistNumberOfSongs"
-                        description={
-                            <div>
-                                <p>
-                                    A MobileSubstrate tweak for Spotify to show
-                                    amount of songs in
-                                </p>
-                                <p>a playlist next to playlist duration.</p>
-                            </div>
-                        }
-                    />
-                </View>
-                <View noPadding={true}>
-                    <h2>Cydia Repository</h2>
-                    <p>All the above tweaks are available in my repository.</p>
-                    <p
-                        className="cydia-repo-link"
-                        onClick={() =>
-                            window.open(
-                                "cydia://url/https://cydia.saurik.com/api/share#?source=http%3A%2F%2Faleksilassila.github.io%2Frepo"
-                            )
-                        }
-                    >
-                        Click here to add http://aleksilassila.github.io/repo to
-                        cydia.
-                    </p>
-                    <style jsx>{`
-                        .cydia-repo-link {
-                            cursor: pointer;
-                            text-decoration: underline;
-                        }
-                    `}</style>
-                </View>
-            </FullView>
-            <div>
-                <div id="bw" />
-                <FullView id="whoami">
-                    <h2>Whoami_</h2>
-                    <p>Hi, I'm a developer from Espoo, Finland.</p>
-                    <p>
-                        I do all sorts of projects, some of which I post here.
-                        Have a look!
-                    </p>
-                </FullView>
-                <style jsx>{`
+const Page = () => (
+    <div id="page">
+        <FullView
+            id="whoami"
+            panelItem={true}
+            panelText="Who am I?"
+            arrow={true}
+        >
+            <h2>Whoami_</h2>
+            <p>Hi, I'm a developer from Espoo, Finland.</p>
+            <p>
+                I do all sorts of projects, some of which I post here. Have a
+                look!
+            </p>
+            <style jsx>{`
+                #bw {
+                    background-image: url("static/bw.JPG");
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    background-position-x: right;
+                    height: 80vh;
+                    width: 50vw;
+                    position: absolute;
+                    right: 0;
+                    margin-top: 10vh;
+                    display: none;
+                }
+
+                @media (max-width: 700px) {
                     #bw {
-                        background-image: url("static/bw.JPG");
-                        background-size: contain;
-                        background-repeat: no-repeat;
-                        background-position-x: right;
-                        height: 80vh;
-                        width: 50vw;
-                        position: absolute;
-                        right: 0;
-                        margin-top: 10vh;
                         display: none;
                     }
-
-                    @media (max-width: 700px) {
-                        #bw {
-                            display: none;
-                        }
+                }
+            `}</style>
+        </FullView>
+        <FullView id="projects" panelItem={true} arrow={true}>
+            <h2>Github projects showcase</h2>
+            <GithubProjects maxRepos={3} />
+            <style jsx>{`
+                h2 {
+                    margin: 0;
+                }
+            `}</style>
+        </FullView>
+        <FullView id="posts" panelItem={true} arrow={true}>
+            <Posts />
+        </FullView>
+        <FullView id="repo" panelItem={true} panelText="Tweaks">
+            <View noPadding={true}>
+                <h2>Tweaks</h2>
+                <Tweak
+                    name="SpotifyPlaylistNumberOfSongs"
+                    description={
+                        <div>
+                            <p>
+                                A MobileSubstrate tweak for Spotify to show
+                                amount of songs in
+                            </p>
+                            <p>a playlist next to playlist duration.</p>
+                        </div>
+                    }
+                />
+            </View>
+            <View noPadding={true}>
+                <h2>Cydia Repository</h2>
+                <p>All the above tweaks are available in my repository.</p>
+                <p
+                    className="cydia-repo-link"
+                    onClick={() =>
+                        window.open(
+                            "cydia://url/https://cydia.saurik.com/api/share#?source=http%3A%2F%2Faleksilassila.github.io%2Frepo"
+                        )
+                    }
+                >
+                    Click here to add http://aleksilassila.github.io/repo to
+                    cydia.
+                </p>
+                <style jsx>{`
+                    .cydia-repo-link {
+                        cursor: pointer;
+                        text-decoration: underline;
                     }
                 `}</style>
-            </div>
-            <Footer>
-                <p>© 2020 Aleksi Lassila</p>
-                <p>
-                    <a href={config.ENDPOINT + "/auth/google"}>
-                        Login with Google
-                    </a>
-                </p>
-            </Footer>
-        </div>
+            </View>
+        </FullView>
+        <Footer>
+            <p>© 2020 Aleksi Lassila</p>
+            <p>
+                <a href={config.ENDPOINT + "/auth/google"}>Login with Google</a>
+            </p>
+        </Footer>
     </div>
 );
+
+const Home = (props) => {
+    const pageInstance = Page();
+    return (
+        <div>
+            <Panel page={pageInstance} />
+            {pageInstance}
+        </div>
+    );
+};
 
 export default Home;

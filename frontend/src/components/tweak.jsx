@@ -12,7 +12,7 @@ const Tweak = ({ name, description }) => {
             >
                 {name}
             </h2>
-            <p>{description}</p>
+            {description}
             <style jsx>{`
                 h2 {
                     font-size: 1em;
