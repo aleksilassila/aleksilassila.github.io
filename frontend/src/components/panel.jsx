@@ -18,6 +18,16 @@ const Panel = ({ disableNav }) => (
             <li
                 onClick={() =>
                     document
+                        .getElementById("posts")
+                        .scrollIntoView({ behavior: "smooth" })
+                }
+            >
+                <Selected elementId="posts" />
+                Posts
+            </li>
+            <li
+                onClick={() =>
+                    document
                         .getElementById("repo")
                         .scrollIntoView({ behavior: "smooth" })
                 }
@@ -51,6 +61,7 @@ const Panel = ({ disableNav }) => (
                 display: flex;
                 flex-direction: column;
                 position: fixed;
+                z-index: 2;
             }
 
             h2 {
@@ -72,6 +83,7 @@ const Panel = ({ disableNav }) => (
                 display: flex;
                 align-items: center;
                 cursor: pointer;
+                font-weight: 400;
             }
 
             #octocat {

@@ -45,6 +45,7 @@ class Selected extends React.Component {
                         margin-right: 0.5rem;
                         transition: height 0.3s;
                         height: ${visible ? "1rem" : "0"};
+                        opacity: ${visible ? "1" : "0"};
                     }
                     .selected {
                         height: 1rem;

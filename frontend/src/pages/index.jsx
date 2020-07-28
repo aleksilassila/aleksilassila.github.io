@@ -22,7 +22,7 @@ const Home = (props) => (
                     }
                 `}</style>
             </FullView>
-            <FullView arrow={true}>
+            <FullView arrow={true} id="posts">
                 <Posts />
             </FullView>
             <FullView id="repo" arrow={true}>
@@ -100,11 +100,6 @@ const Home = (props) => (
                     <a href={config.ENDPOINT + "/auth/google"}>
                         Login with Google
                     </a>
-                    <style jsx>{`
-                        a {
-                            color: ${theme.color.black}80;
-                        }
-                    `}</style>
                 </p>
             </Footer>
         </div>

@@ -100,7 +100,6 @@ const Posts = (props) => {
             <style jsx>{`
                 table h2 {
                     font-size: 1em;
-                    font-weight: 500;
                     margin: 0;
                 }
 

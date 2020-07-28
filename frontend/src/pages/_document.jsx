@@ -12,30 +12,34 @@ class MyDocument extends Document {
             <Html>
                 <Head>
                     <link
-                        href="https://fonts.googleapis.com/css?family=Roboto+Mono:500,300|Raleway:300&amp;display=swap"
+                        href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap"
                         rel="stylesheet"
                     />
                     <style>{`
                         html {
-                            {/*background-color: rgba(100,100,255,1);*/}
+                            background-color: #7f5db4;
                         }
                         
                         body {
                             margin: 0;
                             padding: 0;
                             font-family: Roboto Mono, monospace;
-                            font-weight: 300;
+                            font-weight: 400;
                             height: 100vh;
                             overscroll-behavior: none;
                             background-repeat: no-repeat;
-                            {/*background: linear-gradient(25deg, rgba(100,100,255,1) 20%, rgba(255,61,151,1) 100%);*/}
-                            {/*color: #221a42;*/}
+                            background: ${theme.backgroundGradient};
+                            color: ${theme.text};
                         }
 
                         #clip {
                             height: 100vh;
                             position: fixed;
                             overflow-y: scroll;
+
+                        }
+                        #clip::-webkit-scrollbar {
+                            display: none;
                         }
 
                         * {
@@ -49,6 +53,14 @@ class MyDocument extends Document {
 
                         p {
                             margin: 0.5em 0 0 0;
+                        }
+
+                        a:visited {
+                            color: ${theme.text};
+                        }
+
+                        a {
+                            color: ${theme.text}; 
                         }
 
                         @media (max-width: 72rem) {

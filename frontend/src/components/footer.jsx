@@ -14,10 +14,12 @@ const Footer = ({ children, ...rest }) => (
                 padding: 2vh 8vw;
 
                 font-size: 0.8em;
-                color: ${theme.color.black}80;
+                opacity: 0.7;
 
                 display: flex;
                 justify-content: space-between;
+
+                font-weight: 500;
             }
 
             @media (max-width: 72rem) {
