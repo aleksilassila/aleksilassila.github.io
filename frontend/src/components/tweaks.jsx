@@ -1,7 +1,14 @@
+import useAxios from "axios-hooks";
+
+import config from "../config";
 import theme from "../theme";
 
-const Tweak = ({ name, description }) => {
-    return (
+const Tweaks = () => {
+    const [{ data, loading, error }, refetch] = useAxios({
+        url: config.ENDPOINT + "/tweaks",
+    });
+
+    const Tweak = ({ name, description }) => (
         <div className="tweak">
             <h2
                 onClick={() =>
@@ -35,6 +42,24 @@ const Tweak = ({ name, description }) => {
             `}</style>
         </div>
     );
+
+    if (error) {
+        return <p>Could not load posts</p>;
+    } else if (loading) {
+        return <p>Loading posts...</p>;
+    } else {
+        return (
+            <div>
+                {data.map((tweak, index) => (
+                    <Tweak
+                        key={index}
+                        name={tweak.name}
+                        description={tweak.description}
+                    />
+                ))}
+            </div>
+        );
+    }
 };
 
-export default Tweak;
+export default Tweaks;

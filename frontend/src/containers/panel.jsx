@@ -1,10 +1,9 @@
 import theme from "../theme";
-import Selected from "./selected";
+import Selected from "../components/selected";
 
 const Panel = ({ page, disableNav }) => {
     const listIems = page.props.children.map((item) => {
-        console.log(item);
-        if (item.props.panelItem) {
+        if (item.props.panelitem) {
             return (
                 <div key={item.props.id}>
                     <li
@@ -15,8 +14,8 @@ const Panel = ({ page, disableNav }) => {
                         }
                     >
                         <Selected elementId={item.props.id} />
-                        {item.props.panelText
-                            ? item.props.panelText
+                        {item.props.paneltext
+                            ? item.props.paneltext
                             : item.props.id.charAt(0).toUpperCase() +
                               item.props.id.slice(1)}
                     </li>

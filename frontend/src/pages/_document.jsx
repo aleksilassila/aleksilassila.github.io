@@ -36,8 +36,8 @@ class MyDocument extends Document {
                             height: 100vh;
                             position: fixed;
                             overflow-y: scroll;
-
                         }
+
                         #page::-webkit-scrollbar {
                             display: none;
                         }

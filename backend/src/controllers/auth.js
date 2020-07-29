@@ -26,7 +26,7 @@ passport.use(
 );
 
 exports.returnJWT = (user) => {
-    return jwt.sign({ googleId: user }, config.JWT_SECRET, { expiresIn: "2d" });
+    return jwt.sign({ googleId: user }, config.JWT_SECRET, { expiresIn: "1d" });
 };
 
 exports.verifyJWT = (jwt) => {
@@ -40,7 +40,7 @@ exports.logout = async (ctx) => {
 
 exports.redirect = async (ctx) => {
     ctx.cookies.set("token", this.returnJWT(ctx.state.user));
-    ctx.redirect(config.FRONTEND_ENDPOINT + "/posts");
+    ctx.redirect(config.FRONTEND_ENDPOINT + "/admin");
     // ctx.set("Content-Type", "text/html");
     // ctx.body = "<script>window.close()</script>";
 };

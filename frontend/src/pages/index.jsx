@@ -1,20 +1,20 @@
 import config from "../config";
 import theme from "../theme";
 
-import Panel from "../components/panel";
-import FullView from "../components/fullView";
-import View from "../components/view";
+import Panel from "../containers/panel";
+import FullView from "../containers/fullView";
+import View from "../containers/view";
 import Footer from "../components/footer";
 import Posts from "../components/posts";
-import Tweak from "../components/tweak";
+import Tweaks from "../components/tweaks";
 import GithubProjects from "../components/githubProjects";
 
 const Page = () => (
     <div id="page">
         <FullView
             id="whoami"
-            panelItem={true}
-            panelText="Who am I?"
+            panelitem={true}
+            paneltext="Who am I?"
             arrow={true}
         >
             <h2>Whoami_</h2>
@@ -44,7 +44,7 @@ const Page = () => (
                 }
             `}</style>
         </FullView>
-        <FullView id="projects" panelItem={true} arrow={true}>
+        <FullView id="projects" panelitem={true} arrow={true}>
             <h2>Github projects showcase</h2>
             <GithubProjects maxRepos={3} />
             <style jsx>{`
@@ -53,32 +53,13 @@ const Page = () => (
                 }
             `}</style>
         </FullView>
-        <FullView id="posts" panelItem={true} arrow={true}>
+        <FullView id="posts" panelitem={true} arrow={true}>
             <Posts />
         </FullView>
-        <FullView id="repo" panelItem={true} panelText="Tweaks">
+        <FullView id="repo" panelitem={true} paneltext="Tweaks">
             <View noPadding={true}>
                 <h2>Tweaks</h2>
-                <Tweak
-                    name="SpotifyPlaylistNumberOfSongs"
-                    description={
-                        <div>
-                            <p>
-                                A MobileSubstrate tweak for Spotify to show
-                                amount of songs in
-                            </p>
-                            <p>a playlist next to playlist duration.</p>
-                        </div>
-                    }
-                />
-                <Tweak
-                    name="WSJNoPaywall"
-                    description={
-                        <div>
-                            <p>Bypass WSJ app paywall on iPhone.</p>
-                        </div>
-                    }
-                />
+                <Tweaks />
             </View>
             <View noPadding={true}>
                 <h2>Cydia Repository</h2>

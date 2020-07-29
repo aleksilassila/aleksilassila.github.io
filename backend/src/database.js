@@ -12,6 +12,10 @@ const User = (exports.User = sequelize.define("user", {
     lastName: {
         type: Sequelize.STRING,
     },
+    admin: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false,
+    },
     googleId: {
         type: Sequelize.STRING,
         allowNull: false,
@@ -27,6 +31,17 @@ const Post = (exports.Post = sequelize.define("post", {
     },
     content: {
         type: Sequelize.STRING,
+    },
+}));
+
+const Tweak = (exports.Tweak = sequelize.define("tweak", {
+    name: {
+        type: Sequelize.STRING,
+        allowNull: false,
+    },
+    description: {
+        type: Sequelize.STRING,
+        allowNull: false,
     },
 }));
 

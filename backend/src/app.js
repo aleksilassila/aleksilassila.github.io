@@ -11,6 +11,7 @@ const config = require("./config");
 
 const auth = require("./controllers/auth");
 const posts = require("./controllers/posts");
+const tweaks = require("./controllers/tweaks");
 
 const app = (module.exports = new Koa());
 const router = new Router({ prefix: "/api" });
@@ -38,11 +39,15 @@ router.get(
 
 router.get("/auth/logout", auth.logout);
 
-router.get("/posts", posts.getPosts);
+router.get("/posts", posts.getAll); // Get all public posts
+router.get("/tweaks", tweaks.getAll); // Get all tweaks
 
 privateRouter.get("/posts/get", posts.getMyPosts);
-privateRouter.post("/posts/create", posts.createPost);
-privateRouter.post("/posts/remove", posts.removePost);
+privateRouter.post("/posts/create", posts.create);
+privateRouter.post("/posts/remove", posts.remove);
+privateRouter.post("/tweaks/create", tweaks.create);
+privateRouter.post("/tweaks/remove", tweaks.remove);
+privateRouter.post("/tweaks/update", tweaks.update);
 
 app.use(router.routes()).use(router.allowedMethods());
 
@@ -56,6 +61,11 @@ app.use(async (ctx, next) => {
     });
 
     ctx.state.userObject = user;
+    if (!user) {
+        ctx.status = 403;
+        ctx.body = "User not found.";
+        return;
+    }
     await next();
 });
 

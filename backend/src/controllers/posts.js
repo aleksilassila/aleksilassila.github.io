@@ -3,8 +3,8 @@ const jwt = require("jsonwebtoken");
 const config = require("../config");
 const database = require("../database");
 
-// Posts for user who isn't signed in
-exports.getPosts = async (ctx) => {
+// All public posts
+exports.getAll = async (ctx) => {
     const token = ctx.cookies.get("token");
     const user = token
         ? jwt.verify(token, config.JWT_SECRET, (err, decoded) =>
@@ -47,7 +47,7 @@ exports.getMyPosts = async (ctx) => {
     ctx.body = posts;
 };
 
-exports.createPost = async (ctx) => {
+exports.create = async (ctx) => {
     if (!(ctx.request.body.title && ctx.request.body.content)) {
         ctx.status = 400;
         return;
@@ -55,28 +55,21 @@ exports.createPost = async (ctx) => {
 
     const user = ctx.state.userObject;
 
-    if (user) {
-        await database.Post.create({
-            title: ctx.request.body.title,
-            content: ctx.request.body.content,
-            creatorGoogleId: user.googleId,
-        }).then(() => {
-            ctx.status = 200;
-        });
-    } else {
-        ctx.status = 403;
-        return;
-    }
+    await database.Post.create({
+        title: ctx.request.body.title,
+        content: ctx.request.body.content,
+        creatorGoogleId: user.googleId,
+    }).then(() => {
+        ctx.status = 200;
+    });
 
     ctx.body = "Post created";
 };
 
-exports.removePost = async (ctx) => {
+exports.remove = async (ctx) => {
     if (!ctx.request.body.id) {
         ctx.status = 400;
         return;
-    } else if (ctx.state.userObject) {
-        ctx.status;
     }
 
     await database.Post.destroy({
@@ -84,7 +77,40 @@ exports.removePost = async (ctx) => {
             id: ctx.request.body.id,
             creatorGoogleId: ctx.state.user.googleId,
         },
-    }).then(() => {
-        ctx.status = 200;
+    }).then((success) => {
+        if (success) {
+            ctx.status = 200;
+        } else {
+            ctx.status = 401;
+        }
     });
+};
+
+exports.update = async (ctx) => {
+    const user = ctx.state.userObject;
+
+    if (
+        !ctx.request.body.id ||
+        !ctx.request.body.title ||
+        !ctx.request.body.content
+    ) {
+        ctx.status = 400;
+        return;
+    }
+
+    const post = await database.Post.findOne({
+        where: {
+            id: ctx.request.body.id,
+        },
+    });
+
+    if (post) {
+        post.title = ctx.request.body.title;
+        post.content = ctx.request.body.content;
+        await post.save();
+        ctx.status = 200;
+    } else {
+        ctx.status = 400;
+        ctx.body = "No post found.";
+    }
 };
