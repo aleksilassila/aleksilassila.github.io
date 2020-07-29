@@ -33,6 +33,7 @@ exports.getPosts = async (ctx) => {
 // Posts for specific user
 exports.getMyPosts = async (ctx) => {
     const posts = await database.Post.findAll({
+        order: [["createdAt", "DESC"]],
         include: [
             {
                 model: database.User,

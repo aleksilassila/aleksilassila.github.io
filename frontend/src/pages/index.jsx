@@ -71,6 +71,14 @@ const Page = () => (
                         </div>
                     }
                 />
+                <Tweak
+                    name="WSJNoPaywall"
+                    description={
+                        <div>
+                            <p>Bypass WSJ app paywall on iPhone.</p>
+                        </div>
+                    }
+                />
             </View>
             <View noPadding={true}>
                 <h2>Cydia Repository</h2>

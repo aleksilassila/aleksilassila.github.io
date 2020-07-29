@@ -30,6 +30,7 @@ const Tweak = ({ name, description }) => {
                 .tweak {
                     border-left: 1px solid ${theme.color.black}33;
                     padding: 0.7em 1em;
+                    margin-bottom: 1em;
                 }
             `}</style>
         </div>
