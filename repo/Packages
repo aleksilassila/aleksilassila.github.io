@@ -1,3 +1,19 @@
+Package: me.aleksilassila.spotifydefaultoutputdevice
+Version: 0.0.2
+Architecture: iphoneos-arm
+Maintainer: Aleksi Lassila
+Installed-Size: 280
+Depends: mobilesubstrate (>= 0.9.5000), ws.hbang.common (>= 1.13)
+Filename: debs/me.aleksilassila.spotifydefaultoutputdevice_0.0.2_iphoneos-arm.deb
+Size: 9232
+MD5sum: d85341ee652e30f0a8d2279d82853b3b
+SHA1: cfc151702a734e8db23112fc35705529d27e30cf
+SHA256: 11702e6ca659af3992080cc19157c76762274e064b6d946516f6aba6427261b8
+Section: Tweaks
+Description: Select last used output device if available when clicking devices menu on Spotify.
+Author: Aleksi Lassila
+Name: SpotifyDefaultOutputDevice
+
 Package: me.aleksilassila.spotifyplaylistnumberofsongs
 Version: 0.0.3
 Architecture: iphoneos-arm
