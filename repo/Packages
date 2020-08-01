@@ -1,3 +1,19 @@
+Package: me.aleksilassila.redditundoscrollup
+Version: 0.0.1
+Architecture: iphoneos-arm
+Maintainer: Aleksi Lassila
+Installed-Size: 136
+Depends: mobilesubstrate (>= 0.9.5000)
+Filename: debs/me.aleksilassila.redditundoscrollup_0.0.1_iphoneos-arm.deb
+Size: 4214
+MD5sum: 9296b2d5a21db58530c10660ed8c8899
+SHA1: 15394ec94f106a278538fc52060c22554ffe00c4
+SHA256: 1b3ce16f1c06ea182563213bf426764f56d161e7ec4015eea9f41e2d15d931b4
+Section: Tweaks
+Description: Second status bar tap scrolls you back where you were
+Author: Aleksi Lassila
+Name: RedditUndoScrollUp
+
 Package: me.aleksilassila.spotifydefaultoutputdevice
 Version: 0.0.2
 Architecture: iphoneos-arm
