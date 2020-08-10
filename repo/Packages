@@ -46,6 +46,22 @@ Description: Show more popular songs in Spotify artist page
 Author: Aleksi Lassila
 Name: SpotifyMorePopularSongs
 
+Package: me.aleksilassila.spotifynocovidsupport
+Version: 0.0.1
+Architecture: iphoneos-arm
+Maintainer: Aleksi Lassila
+Installed-Size: 136
+Depends: mobilesubstrate (>= 0.9.5000)
+Filename: debs/me.aleksilassila.spotifynocovidsupport_0.0.1_iphoneos-arm.deb
+Size: 4620
+MD5sum: ee2a390204e29d50541b10b42933ddc7
+SHA1: 3b04b212f012ab4fdd5ac96684d81fc8a0659085
+SHA256: f9acf502c66d2c962896e35daeeb0e2aa7e69e749be1b5eba2e7b138e64012fe
+Section: Tweaks
+Description: Remove covid support link from artist page in Spotify
+Author: Aleksi Lassila
+Name: SpotifyNoCovidSupport
+
 Package: me.aleksilassila.spotifyplaylistnumberofsongs
 Version: 0.0.3
 Architecture: iphoneos-arm
