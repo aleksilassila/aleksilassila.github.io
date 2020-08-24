@@ -62,7 +62,7 @@ const GithubProjects = ({ maxRepos }) => {
                     .github-repo {
                         display: flex;
                         justify-content: space-between;
-                        border-bottom: 1px solid ${theme.color.black}33;
+                        border-bottom: 1px solid ${theme.separators};
                         padding-top: 2em;
                         padding-bottom: 2em;
                     }
@@ -133,7 +133,7 @@ const GithubProjects = ({ maxRepos }) => {
                 <style jsx>{`
                     #github-projects {
                         margin: 1em 0;
-                        border-top: 1px solid ${theme.color.black}33;
+                        border-top: 1px solid ${theme.separators};
                         padding: 0 1em;
                     }
 

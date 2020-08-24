@@ -57,7 +57,7 @@ const Panel = ({ page, disableNav }) => {
                     min-width: 18rem;
                     height: 100vh;
                     padding-top: 10vh;
-                    border-right: 1px solid ${theme.color.black}33;
+                    border-right: 1px solid ${theme.separators};
                     display: flex;
                     flex-direction: column;
                     position: fixed;
@@ -80,6 +80,7 @@ const Panel = ({ page, disableNav }) => {
 
                 #octocat {
                     background-image: url("../static/GitHub-Mark-64px.png");
+                    ${theme.invertedIcons ? "filter: invert(100%);" : ""}
                     background-size: cover;
                     background-position: center;
                     width: 2rem;

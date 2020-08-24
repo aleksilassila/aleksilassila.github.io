@@ -41,7 +41,7 @@ class Selected extends React.Component {
                     div {
                         display: inline-block;
                         width: 3px;
-                        background-color: ${theme.color.black};
+                        background-color: ${theme.text};
                         margin-right: 0.5rem;
                         transition: height 0.3s;
                         height: ${visible ? "1rem" : "0"};

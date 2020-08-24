@@ -1,3 +1,5 @@
+import theme from "../theme";
+
 const FullView = ({ children, arrow, ...rest }) => (
     <div className="full-view-wrapper" {...rest}>
         <div className="full-view">{children}</div>
@@ -19,6 +21,7 @@ const FullView = ({ children, arrow, ...rest }) => (
 
             .arrow {
                 background-image: url("../static/arrow-down.png");
+                ${theme.invertedIcons ? "filter: invert(100%);" : ""}
                 background-size: contain;
                 background-position: center;
                 background-repeat: no-repeat;
