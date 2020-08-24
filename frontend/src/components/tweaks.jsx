@@ -35,7 +35,7 @@ const Tweaks = () => {
                 }
 
                 .tweak {
-                    border-left: 1px solid ${theme.color.black}33;
+                    border-left: 1px solid ${theme.separators};
                     padding: 0.7em 1em;
                     margin-bottom: 1em;
                 }
@@ -44,9 +44,9 @@ const Tweaks = () => {
     );
 
     if (error) {
-        return <p>Could not load posts</p>;
+        return <p>Could not load tweaks</p>;
     } else if (loading) {
-        return <p>Loading posts...</p>;
+        return <p>Loading tweaks...</p>;
     } else {
         return (
             <div>
