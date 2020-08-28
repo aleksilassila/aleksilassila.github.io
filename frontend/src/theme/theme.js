@@ -11,6 +11,7 @@ const theme = {
 
     text: "#231e3a",
     // text: "#d7d2ef",
+    altText: "#d7d2ef",
     separators: "#00000033", // Will be set based on text color later
     backgroundGradient:
         // "linear-gradient(20deg, rgb(158 59 165), rgb(88 126 197))",

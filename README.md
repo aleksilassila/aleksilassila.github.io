@@ -15,3 +15,8 @@ GOOGLE_CLIENT_SECRET=
 ENDPOINT=
 FRONTEND_ENDPOINT=
 ```
+
+## Backend development environment
+
+`source .env`
+`brew services run postgresql`

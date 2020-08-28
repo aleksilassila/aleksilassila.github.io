@@ -170,6 +170,7 @@ const Posts = (props) => {
                 textarea {
                     float: right;
                     width: 60vw;
+                    resize: vertical;
                 }
 
                 input[type="submit"] {

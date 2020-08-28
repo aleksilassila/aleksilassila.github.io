@@ -63,6 +63,18 @@ class MyDocument extends Document {
                             color: ${theme.text}; 
                         }
 
+                        input, textarea {
+                            background-color: ${theme.text};
+                            color: ${theme.altText};
+                            padding: 0.4rem;
+                            border: none;
+                            border-radius: 6px;
+                        }
+
+                        textarea {
+                            min-height: 60px;                            
+                        }
+
                         @media (max-width: 72rem) {
                             #page {
                                 margin-top: 48px;
