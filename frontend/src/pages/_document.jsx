@@ -80,6 +80,20 @@ class MyDocument extends Document {
                             cursor: unset;
                         }
 
+                        input[type=checkbox] {
+                            appearance: none;
+                            background-color: ${theme.text};
+                            border-radius: 50%;
+                            border: 3px solid ${theme.text}00;
+                            background-color: ${theme.text}cc;
+                            padding: 4.5px;
+                        }
+
+                        input[type=checkbox]:checked {
+                            border: 3px solid ${theme.text};
+                            background-color: ${theme.altText};
+                        }
+
                         textarea {
                             min-height: 60px;                            
                         }

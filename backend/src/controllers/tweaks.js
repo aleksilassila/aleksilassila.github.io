@@ -37,7 +37,7 @@ exports.create = async (ctx) => {
 exports.remove = async (ctx) => {
     const user = ctx.state.userObject;
 
-    if (!ctx.request.body.id) {
+    if (!ctx.request.body.ids) {
         ctx.status = 400;
         return;
     } else if (user.admin === false) {
@@ -47,7 +47,7 @@ exports.remove = async (ctx) => {
 
     await database.Tweak.destroy({
         where: {
-            id: ctx.request.body.id,
+            id: ctx.request.body.ids,
         },
     }).then((success) => {
         if (success) {
