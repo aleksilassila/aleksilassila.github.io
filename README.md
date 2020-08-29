@@ -1,5 +1,12 @@
 # aleksilassila.github.io
 
+My homepage, featuring "blog" posts, tweaks and google oauth login to administration page. Built with Next.js and Koa.
+
+## Screenshots
+
+![Homepage](/screenshots/screenshot-home.png?raw=true)
+![Admin page](/screenshots/screenshot-admin.png?raw=true)
+
 ## .env file for development
 
 ```

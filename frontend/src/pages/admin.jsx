@@ -145,6 +145,10 @@ const Posts = (props) => {
                     border-collapse: collapse;
                 }
 
+                input[type="checkbox"] {
+                    margin-top: 9px;
+                }
+
                 table {
                     width: 100%;
                     margin-bottom: 2rem;
@@ -382,6 +386,10 @@ const Tweaks = () => {
                 table,
                 tbody {
                     border-collapse: collapse;
+                }
+
+                input[type="checkbox"] {
+                    margin-top: 9px;
                 }
 
                 table {
