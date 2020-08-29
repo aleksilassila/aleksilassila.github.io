@@ -45,9 +45,10 @@ router.get("/tweaks", tweaks.getAll); // Get all tweaks
 privateRouter.get("/posts/get", posts.getMyPosts);
 privateRouter.post("/posts/create", posts.create);
 privateRouter.post("/posts/remove", posts.remove);
+privateRouter.patch("/posts/update", posts.update);
 privateRouter.post("/tweaks/create", tweaks.create);
 privateRouter.post("/tweaks/remove", tweaks.remove);
-privateRouter.post("/tweaks/update", tweaks.update);
+privateRouter.patch("/tweaks/update", tweaks.update);
 
 app.use(router.routes()).use(router.allowedMethods());
 

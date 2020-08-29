@@ -67,14 +67,14 @@ exports.create = async (ctx) => {
 };
 
 exports.remove = async (ctx) => {
-    if (!ctx.request.body.id) {
+    if (!ctx.request.body.ids) {
         ctx.status = 400;
         return;
     }
 
     await database.Post.destroy({
         where: {
-            id: ctx.request.body.id,
+            id: ctx.request.body.ids,
             creatorGoogleId: ctx.state.user.googleId,
         },
     }).then((success) => {

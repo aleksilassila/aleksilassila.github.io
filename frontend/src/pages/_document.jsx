@@ -69,6 +69,12 @@ class MyDocument extends Document {
                             padding: 0.4rem;
                             border: none;
                             border-radius: 6px;
+                            cursor: pointer;
+                        }
+
+                        input:disabled {
+                            opacity: 0.5;
+                            cursor: unset;
                         }
 
                         textarea {

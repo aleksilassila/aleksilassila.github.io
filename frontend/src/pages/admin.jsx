@@ -32,19 +32,29 @@ const Panel = () => (
 
 const Posts = (props) => {
     const [popup, setPopup] = useState(<div />);
+    const [selected, setSelected] = useState({});
 
     const [{ data, loading, error }, refetch] = useAxios({
         url: config.ENDPOINT + "/posts/get",
         withCredentials: true,
     });
 
-    const deletePost = async (id) => {
+    const deletePosts = async () => {
+        const ids = Object.keys(selected).map((key) => {
+            if (selected[key]) {
+                const newSelected = { ...selected };
+                delete newSelected[key];
+                setSelected(newSelected);
+                return key;
+            }
+        });
+
         await axios({
             method: "post",
             url: config.ENDPOINT + "/posts/remove",
             withCredentials: true,
             data: {
-                id,
+                ids,
             },
         }).then(refetch);
     };
@@ -64,34 +74,60 @@ const Posts = (props) => {
         });
     };
 
+    const editPost = async (e, id, title, content) => {
+        e.preventDefault();
+        console.log(id, title, content);
+        await axios({
+            method: "patch",
+            url: config.ENDPOINT + "/posts/update",
+            withCredentials: true,
+            data: {
+                id,
+                title,
+                content,
+            },
+        }).then(() => {
+            refetch();
+        });
+    };
+
+    const selectedCount = () => {
+        let count = 0;
+        for (const index in selected) {
+            if (selected[index] === true) count++;
+        }
+
+        return count;
+    };
+
     const Table = () => (
         <table>
             <tbody>
                 <tr>
-                    <th>
-                        <h2>ID</h2>
-                    </th>
+                    <th></th>
                     <th>
                         <h2>Title</h2>
                     </th>
                     <th>
                         <h2>Content</h2>
                     </th>
-                    <th></th>
                 </tr>
                 {data.map((post) => (
                     <tr key={post.id}>
-                        <td>{post.id}</td>
+                        <td>
+                            <input
+                                type="checkbox"
+                                name={post.id}
+                                checked={selected[post.id]}
+                                onChange={(e) => {
+                                    const newSelected = { ...selected };
+                                    newSelected[post.id] = e.target.checked;
+                                    setSelected(newSelected);
+                                }}
+                            />
+                        </td>
                         <td>{post.title}</td>
                         <td>{post.content}</td>
-                        <td>
-                            <span
-                                className="remove-button"
-                                onClick={() => deletePost(post.id)}
-                            >
-                                Remove
-                            </span>
-                        </td>
                     </tr>
                 ))}
             </tbody>
@@ -140,23 +176,66 @@ const Posts = (props) => {
             ) : (
                 <Table />
             )}
-            <input
-                key="create"
-                type="button"
-                value="Create"
-                onClick={(e) => {
-                    e.preventDefault();
-                    setPopup(
-                        <SubmissionPopup
-                            heading="Create Post"
-                            mainlabel="Title:"
-                            sublabel="Content:"
-                            closepopup={() => setPopup(<div />)}
-                            submitaction={submitPost}
-                        />
-                    );
-                }}
-            />
+            <div>
+                <input
+                    key="create"
+                    type="button"
+                    value="Create"
+                    onClick={(e) => {
+                        e.preventDefault();
+                        setPopup(
+                            <SubmissionPopup
+                                heading="Create Post"
+                                mainlabel="Title:"
+                                sublabel="Content:"
+                                closepopup={() => setPopup(<div />)}
+                                submitaction={submitPost}
+                            />
+                        );
+                    }}
+                />
+                <input
+                    key="delete"
+                    type="button"
+                    value={`Delete${
+                        selectedCount() > 1 ? ` (${selectedCount()})` : ""
+                    }`}
+                    disabled={selectedCount() === 0}
+                    onClick={(e) => {
+                        e.preventDefault();
+                        deletePosts();
+                    }}
+                />
+                <input
+                    key="edit"
+                    type="button"
+                    value="Edit"
+                    disabled={selectedCount() !== 1}
+                    onClick={(e) => {
+                        e.preventDefault();
+                        setPopup(
+                            <SubmissionPopup
+                                heading="Edit Post"
+                                mainlabel="Title:"
+                                sublabel="Content:"
+                                closepopup={() => setPopup(<div />)}
+                                submitaction={(e, title, content) => {
+                                    let id;
+
+                                    for (let key of Object.keys(selected)) {
+                                        if (selected[key] === true) {
+                                            id = key;
+                                            break;
+                                        }
+                                    }
+
+                                    if (id) editPost(e, id, title, content);
+                                }}
+                            />
+                        );
+                    }}
+                />
+            </div>
             <style jsx>{`
                 #posts-page {
                     padding: 0.5rem 8vw;
@@ -164,6 +243,10 @@ const Posts = (props) => {
 
                 input[type="button"] {
                     width: 100px;
+                }
+
+                input[type="button"]:not(:first-child) {
+                    margin-left: 1rem;
                 }
             `}</style>
         </div>

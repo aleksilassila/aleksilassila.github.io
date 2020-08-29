@@ -8,10 +8,12 @@ const SubmissionPopup = ({
     sublabel,
     submitaction,
     closepopup,
+    mainvalue = "",
+    subvalue = "",
     ...rest
 }) => {
-    const [mainValue, setMainValue] = useState("");
-    const [subValue, setSubValue] = useState("");
+    const [mainValue, setMainValue] = useState(mainvalue);
+    const [subValue, setSubValue] = useState(subvalue);
 
     return (
         <div className="submission-popup-background" {...rest}>
@@ -40,7 +42,12 @@ const SubmissionPopup = ({
                         value={subValue}
                         onChange={(e) => setSubValue(e.target.value)}
                     />
-                    <input key="submit" type="submit" value="Submit" />
+                    <input
+                        key="submit"
+                        type="submit"
+                        value="Submit"
+                        disabled={mainValue === "" || subValue === ""}
+                    />
                 </form>
             </div>
             <style jsx>{`
@@ -54,6 +61,7 @@ const SubmissionPopup = ({
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                    z-index: 100;
                 }
 
                 .submission-popup {
