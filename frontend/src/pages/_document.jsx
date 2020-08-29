@@ -69,6 +69,9 @@ class MyDocument extends Document {
                             padding: 0.4rem;
                             border: none;
                             border-radius: 6px;
+                        }
+
+                        input[type=button] {
                             cursor: pointer;
                         }
 
