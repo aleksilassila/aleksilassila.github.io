@@ -7,7 +7,7 @@ const SubmissionPopup = ({
     mainlabel,
     sublabel,
     submitaction,
-    setpopup,
+    closepopup,
     ...rest
 }) => {
     const [mainValue, setMainValue] = useState("");
@@ -18,12 +18,17 @@ const SubmissionPopup = ({
             <div
                 className="close-popup"
                 onClick={() => {
-                    setpopup(<div />);
+                    closepopup();
                 }}
             />
             <div className="submission-popup">
                 <h2>{heading}</h2>
-                <form onSubmit={submitaction}>
+                <form
+                    onSubmit={(e) => {
+                        submitaction(e, mainValue, subValue);
+                        closepopup();
+                    }}
+                >
                     <label>{mainlabel}</label>
                     <input
                         type="text"

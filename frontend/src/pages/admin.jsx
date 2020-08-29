@@ -31,8 +31,6 @@ const Panel = () => (
 );
 
 const Posts = (props) => {
-    const [title, setTitle] = useState("");
-    const [content, setContent] = useState("");
     const [popup, setPopup] = useState(<div />);
 
     const [{ data, loading, error }, refetch] = useAxios({
@@ -51,7 +49,7 @@ const Posts = (props) => {
         }).then(refetch);
     };
 
-    const submitPost = async (e) => {
+    const submitPost = async (e, title, content) => {
         e.preventDefault();
         await axios({
             method: "post",
@@ -63,8 +61,6 @@ const Posts = (props) => {
             },
         }).then(() => {
             refetch();
-            setTitle("");
-            setContent("");
         });
     };
 
@@ -110,6 +106,11 @@ const Posts = (props) => {
                     border-collapse: collapse;
                 }
 
+                table {
+                    width: 100%;
+                    margin-bottom: 2rem;
+                }
+
                 th {
                     text-align: left;
                     padding: 0 0.5em;
@@ -139,69 +140,30 @@ const Posts = (props) => {
             ) : (
                 <Table />
             )}
-            <h3>Create post</h3>
-            <form onSubmit={submitPost}>
-                <label>
-                    Title:
-                    <input
-                        type="text"
-                        value={title}
-                        onChange={(e) => setTitle(e.target.value)}
-                    />
-                </label>
-                <label>
-                    Content:
-                    <textarea
-                        value={content}
-                        onChange={(e) => setContent(e.target.value)}
-                    />
-                </label>
-                <input
-                    key="submit"
-                    type="submit"
-                    value="Submit"
-                    onClick={(e) => {
-                        e.preventDefault();
-                        setPopup(
-                            <SubmissionPopup
-                                heading="Create Post"
-                                mainlabel="Title:"
-                                sublabel="Content:"
-                                setpopup={setPopup}
-                                submitaction={() => {}}
-                            />
-                        );
-                    }}
-                />
-            </form>
+            <input
+                key="create"
+                type="button"
+                value="Create"
+                onClick={(e) => {
+                    e.preventDefault();
+                    setPopup(
+                        <SubmissionPopup
+                            heading="Create Post"
+                            mainlabel="Title:"
+                            sublabel="Content:"
+                            closepopup={() => setPopup(<div />)}
+                            submitaction={submitPost}
+                        />
+                    );
+                }}
+            />
             <style jsx>{`
                 #posts-page {
                     padding: 0.5rem 8vw;
                 }
 
-                form {
-                    padding: 1em 0;
-                    display: flex;
-                    flex-direction: column;
-                }
-
-                input[type="text"],
-                textarea {
-                    float: right;
-                    width: 60vw;
-                    resize: vertical;
-                }
-
-                input[type="submit"] {
+                input[type="button"] {
                     width: 100px;
-                }
-
-                label {
-                    margin-bottom: 1em;
-                }
-
-                h3 {
-                    margin-bottom: 0;
                 }
             `}</style>
         </div>
@@ -209,8 +171,7 @@ const Posts = (props) => {
 };
 
 const Tweaks = () => {
-    const [name, setName] = useState("");
-    const [description, setDescription] = useState("");
+    const [popup, setPopup] = useState(<div />);
 
     const [{ data, loading, error }, refetch] = useAxios({
         url: config.ENDPOINT + "/tweaks",
@@ -227,7 +188,7 @@ const Tweaks = () => {
         }).then(refetch);
     };
 
-    const submitTweak = async (e) => {
+    const submitTweak = async (e, name, description) => {
         e.preventDefault();
 
         await axios({
@@ -240,8 +201,6 @@ const Tweaks = () => {
             },
         }).then(() => {
             refetch();
-            setName("");
-            setDescription("");
         });
     };
 
@@ -287,6 +246,11 @@ const Tweaks = () => {
                     border-collapse: collapse;
                 }
 
+                table {
+                    width: 100%;
+                    margin-bottom: 2rem;
+                }
+
                 th {
                     text-align: left;
                     padding: 0 0.5em;
@@ -306,65 +270,42 @@ const Tweaks = () => {
     );
 
     return (
-        <div>
-            <div id="tweaks-page">
-                <h2>Manage Tweaks</h2>
-                {error ? (
-                    <p>Error while loading tweaks</p>
-                ) : loading ? (
-                    <p>Loading tweaks...</p>
-                ) : (
-                    <Table />
-                )}
-                <h3>Add tweak</h3>
-                <form onSubmit={submitTweak}>
-                    <label>
-                        Name:
-                        <input
-                            type="text"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
+        <div id="tweaks-page">
+            {popup}
+            <h2>Manage Tweaks</h2>
+            {error ? (
+                <p>Error while loading tweaks</p>
+            ) : loading ? (
+                <p>Loading tweaks...</p>
+            ) : (
+                <Table />
+            )}
+            <input
+                key="create"
+                type="button"
+                value="Create"
+                onClick={(e) => {
+                    e.preventDefault();
+                    setPopup(
+                        <SubmissionPopup
+                            heading="Add Tweak"
+                            mainlabel="Name:"
+                            sublabel="Description:"
+                            closepopup={() => setPopup(<div />)}
+                            submitaction={submitTweak}
                         />
-                    </label>
-                    <label>
-                        Description:
-                        <textarea
-                            value={description}
-                            onChange={(e) => setDescription(e.target.value)}
-                        />
-                    </label>
-                    <input key="submit" type="submit" value="Submit" />
-                </form>
-                <style jsx>{`
-                    #tweaks-page {
-                        padding: 0.5rem 8vw;
-                    }
+                    );
+                }}
+            />
+            <style jsx>{`
+                #tweaks-page {
+                    padding: 0.5rem 8vw;
+                }
 
-                    form {
-                        padding: 1em 0;
-                        display: flex;
-                        flex-direction: column;
-                    }
-
-                    input[type="text"],
-                    textarea {
-                        float: right;
-                        width: 60vw;
-                    }
-
-                    input[type="submit"] {
-                        width: 100px;
-                    }
-
-                    label {
-                        margin-bottom: 1em;
-                    }
-
-                    h3 {
-                        margin-bottom: 0;
-                    }
-                `}</style>
-            </div>
+                input[type="button"] {
+                    width: 100px;
+                }
+            `}</style>
         </div>
     );
 };
