@@ -5,6 +5,7 @@ import { useState } from "react";
 
 import config from "../config";
 import theme from "../theme";
+import SubmissionPopup from "../components/submissionPopup";
 
 const Panel = () => (
     <div id="posts-panel">
@@ -32,6 +33,7 @@ const Panel = () => (
 const Posts = (props) => {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
+    const [popup, setPopup] = useState(<div />);
 
     const [{ data, loading, error }, refetch] = useAxios({
         url: config.ENDPOINT + "/posts/get",
@@ -128,6 +130,7 @@ const Posts = (props) => {
 
     return (
         <div id="posts-page">
+            {popup}
             <h2>Manage Posts</h2>
             {error ? (
                 <p>Error while loading posts</p>
@@ -153,7 +156,23 @@ const Posts = (props) => {
                         onChange={(e) => setContent(e.target.value)}
                     />
                 </label>
-                <input key="submit" type="submit" value="Submit" />
+                <input
+                    key="submit"
+                    type="submit"
+                    value="Submit"
+                    onClick={(e) => {
+                        e.preventDefault();
+                        setPopup(
+                            <SubmissionPopup
+                                heading="Create Post"
+                                mainlabel="Title:"
+                                sublabel="Content:"
+                                setpopup={setPopup}
+                                submitaction={() => {}}
+                            />
+                        );
+                    }}
+                />
             </form>
             <style jsx>{`
                 #posts-page {
