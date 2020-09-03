@@ -19,8 +19,8 @@ GOOGLE_CLIENT_SECRET=
 ```
 GOOGLE_CLIENT_ID=
 GOOGLE_CLIENT_SECRET=
-ENDPOINT=
-FRONTEND_ENDPOINT=
+ENDPOINT=http://aleksilassila.me/api
+FRONTEND_ENDPOINT=http://aleksilassila.me
 ```
 
 ## Backend development environment
