@@ -31,16 +31,16 @@ Author: Aleksi Lassila
 Name: SpotifyDefaultOutputDevice
 
 Package: me.aleksilassila.spotifymorepopularsongs
-Version: 0.0.2
+Version: 0.0.4
 Architecture: iphoneos-arm
 Maintainer: Aleksi Lassila
 Installed-Size: 320
 Depends: mobilesubstrate (>= 0.9.5000)
-Filename: debs/me.aleksilassila.spotifymorepopularsongs_0.0.2_iphoneos-arm.deb
-Size: 27384
-MD5sum: 21ab5824578683f08642caae7ffc6879
-SHA1: 19343678a955791abcdb3cb097bb5023e7c56770
-SHA256: 5037dc7b92085a798c164f289abd28af72e2b5ca7fd45a7cb0f2e22fe0376f5b
+Filename: debs/me.aleksilassila.spotifymorepopularsongs_0.0.4_iphoneos-arm.deb
+Size: 27594
+MD5sum: 96b203db9ad6f06ec4bb0c7c8f089858
+SHA1: ffa1b83742239b81a3d567d3068a9a54f30edd8a
+SHA256: 18a7d2406ba572d066699589da0a6054af5d135e6958e2337ad76de9f2b4436b
 Section: Tweaks
 Description: Show more popular songs in Spotify artist page
 Author: Aleksi Lassila
