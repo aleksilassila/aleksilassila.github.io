@@ -7,6 +7,8 @@ services:
       POSTGRES_USER: post
       POSTGRES_DB: post
       POSTGRES_PASSWORD: post
+    ports:
+      - 6000:5432
     volumes:
       - dbdata:/var/lib/postgresql/data
 
